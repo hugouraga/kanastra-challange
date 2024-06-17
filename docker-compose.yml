@@ -1,0 +1,147 @@
+version: "3.8"
+
+services:
+  # PHP Service
+  php:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: laravel-kanastra
+    working_dir: /app
+    hostname: php-fpm
+    ports:
+      - "8000:8000"
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql-kanastra
+      DB_PORT: 3306
+      DB_DATABASE: kanastra
+      DB_USERNAME: root
+      DB_PASSWORD: kanastra
+      APP_NAME: kanastra
+      APP_ENV: local
+      APP_KEY: base64:ZTwtsvyUrsMMIpi+9m3ALbSIk4bcszkwfmmxtDQBSl8=
+      APP_DEBUG: true
+      APP_TIMEZONE: UTC
+      APP_URL: http://localhost
+      APP_LOCALE: en
+      APP_FALLBACK_LOCALE: en
+      APP_FAKER_LOCALE: en_US
+      APP_MAINTENANCE_DRIVER: file
+      APP_MAINTENANCE_STORE: database
+      LOG_LEVEL: debug
+      BROADCAST_CONNECTION: log
+      FILESYSTEM_DISK: local
+      QUEUE_CONNECTION: database
+      CACHE_STORE: file
+      MAIL_MAILER: log
+      MAIL_HOST: 127.0.0.1
+      MAIL_PORT: 2525
+      MAIL_USERNAME: null
+      MAIL_PASSWORD: null
+      MAIL_ENCRYPTION: null
+      MAIL_FROM_ADDRESS: "hello@example.com"
+      MAIL_FROM_NAME: "${APP_NAME}"
+      VITE_APP_NAME: "${APP_NAME}"
+    command: >
+      sh -c "php artisan migrate && php artisan config:cache && php artisan serve --host=0.0.0.0 --port=8000"
+    networks:
+      - laravel
+    depends_on:
+      mysql:
+        condition: service_healthy
+    links:
+      - mysql:mysql
+  queue:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: laravel-kanastra-queue
+    working_dir: /app
+    hostname: php-fpm
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql-kanastra
+      DB_PORT: 3306
+      DB_DATABASE: kanastra
+      DB_USERNAME: root
+      DB_PASSWORD: kanastra
+      QUEUE_CONNECTION: database
+      CACHE_STORE: file
+      MAIL_MAILER": smtp
+      MAIL_HOST": sandbox.smtp.mailtrap.io
+      MAIL_PORT": 2525
+      MAIL_USERNAME": 8d2b7cc1401714
+      MAIL_PASSWORD": send_email_for_me
+      MAIL_ENCRYPTION": tls
+      MAIL_FROM_ADDRESS": hugouraga61@gmail.com
+    command: >
+      sh -c "php artisan queue:work"
+    networks:
+      - laravel
+    depends_on:
+      mysql:
+        condition: service_healthy
+    links:
+      - mysql:mysql
+  schedule:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    container_name: laravel-kanastra-schedule
+    working_dir: /app
+    hostname: php-fpm
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql-kanastra
+      DB_PORT: 3306
+      DB_DATABASE: kanastra
+      DB_USERNAME: root
+      DB_PASSWORD: kanastra
+    command: >
+      sh -c "php artisan schedule:work"
+    networks:
+      - laravel
+    depends_on:
+      mysql:
+        condition: service_healthy
+    links:
+      - mysql:mysql
+  # MySQL Service
+  mysql:
+    image: mysql:latest
+    container_name: mysql-db-kanastra
+    restart: always
+    hostname: mysql-kanastra
+    environment:
+      MYSQL_ROOT_PASSWORD: kanastra
+      MYSQL_DATABASE: kanastra
+      MYSQL_USER: kanastra
+      MYSQL_PASSWORD: kanastra
+    ports:
+      - 3307:3306
+    networks:
+      - laravel
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h mysql -u root -pkanastra"]
+      interval: 20s
+      retries: 5
+    volumes:
+      - dbdata:/var/lib/mysql
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+  dbdata:
+  backenddata:

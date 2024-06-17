@@ -6,18 +6,25 @@
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
 <!-- PROJECT -->
 <br />
 <p align="center">
 
   <img src="https://avatars.githubusercontent.com/u/96804932?s=200&v=4" alt="Logo" width="80" height="80">
 
-  <h3 align="center">Kanastra's Boilerplate Frontend Challenge</h3>
+  <h3 align="center">Kanastra's Challenge  🚀</h3>
 
   <p align="center">
-     This application is a boilerplate to make the frontend challenge more quickly.
+    This application is a challenge of the kanastra selection process
     <br />
+    <a href="https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate">View Demo</a>
+    ·
+    <a href="https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/issues">Request Feature</a>
   </p>
 </p>
 
@@ -36,73 +43,49 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#docker">Running with Docker</a></li>
       </ul>
     </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
+This project serves as a boilerplate to quickly set up the frontend challenge environment at Kanastra.
 
 ### Built With
 
-* [React](https://reactjs.org/)
-* [Typescript](https://www.typescriptlang.org/)
-* [Tailwindcss](https://tailwindcss.com/)
-* [Vite](https://vitejs.dev)
-* [shadcn/ui](https://ui.shadcn.com/)
-* [bun](https://bun.sh/) (But you can use [Node.js](https://nodejs.org/en) instead)
+- [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev)
+- [Vitest](https://vitest.dev/api/expect.htmlv)
+- [bun](https://bun.sh/)
+- [laravel](https://laravel.com/)
+- [Docker](https://www.docker.com/)
+- [mailtrap](https://mailtrap.io/)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+Note:
+
+The processing of files for sending emails and generating invoices is performed using a scheduler every 5 minutes. This process allocates tasks to a queue to prevent application bottlenecks.
 
 ### Prerequisites
 
-You need to install bun
+- Launch the docker application on your computer
 
-* To install bun, run this command:
-  ```sh
-  curl -fsSL https://bun.sh/install | bash
-  ```
-  _Supported on macOS, Linux, and WSL_
+- docker-compose build
 
-#### If you're using Node instead Bun, please make sure that you Node version is 18 or higher.
-_(Recommended if you're using Windows without WSL)_
+- docker-compose up
 
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate.git
-   ```
-2. Install the packages
-   ```sh
-   bun install
-   ```
-   or
-
-   ```sh
-   npm i
-   ```
-3. With packages installed, run development command:
-    ```sh
-    bun run dev
-    ```
-    or
-
-    ```sh
-    npm run dev:node
-    ```
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Kanastra-Tech/kanastra-challenge-boilerplate.svg?style=for-the-badge
-[contributors-url]: https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Kanastra-Tech/kanastra-challenge-boilerplate.svg?style=for-the-badge
-[forks-url]: https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/Kanastra-Tech/kanastra-challenge-boilerplate.svg?style=for-the-badge
-[stars-url]: https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Kanastra-Tech/kanastra-challenge-boilerplate.svg?style=for-the-badge
-[issues-url]: https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/company/kanastra/
+- to access the frontend -> http://localhost:8080/
+- to access the backend -> http://localhost:8000/
