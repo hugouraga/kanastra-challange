@@ -9,7 +9,7 @@
   <h3 align="center">Kanastra's Challenge  🚀</h3>
 
   <p align="center">
-    This application is a challenge of the kanastra process
+     This project was created to develop the challenge presented by Kanastra.
     <br />
     <a href="https://github.com/Kanastra-Tech/kanastra-challenge-boilerplate"><strong>Explore the docs »</strong></a>
     <br />
