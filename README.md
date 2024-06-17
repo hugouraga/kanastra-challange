@@ -75,6 +75,8 @@ Note:
 The processing of files for sending emails and generating invoices is performed using a scheduler every 5 minutes. This process allocates tasks to a queue to prevent application bottlenecks.
 ```
 
+<!-- Prerequisites -->
+
 ### Prerequisites
 
 - Launch the docker application on your computer
@@ -85,6 +87,25 @@ The processing of files for sending emails and generating invoices is performed 
 
 - to access the frontend -> http://localhost:8080/
 - to access the backend -> http://localhost:8000/
+
+## Testing the Email Sending Service
+
+To test the email sending functionality, follow these steps:
+
+1. Create an account on the sandbox environment at [Mailtrap](https://mailtrap.io/).
+2. Obtain your credentials from Mailtrap.
+3. Insert these credentials into the "queue" container.
+   
+```
+ MAIL_MAILER": smtp
+MAIL_HOST": sandbox.smtp.mailtrap.io
+MAIL_PORT": xxxxx
+MAIL_USERNAME": xxxxxxx
+MAIL_PASSWORD": xxxxxxxx
+MAIL_ENCRYPTION": tls
+MAIL_FROM_ADDRESS": hugouraga61@gmail.com
+```
+
 
 <!-- GETTING STARTED -->
 
