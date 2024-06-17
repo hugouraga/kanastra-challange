@@ -97,7 +97,7 @@ To test the email sending functionality, follow these steps:
 3. Insert these credentials into the "queue" container.
    
 ```
- MAIL_MAILER": smtp
+MAIL_MAILER": smtp
 MAIL_HOST": sandbox.smtp.mailtrap.io
 MAIL_PORT": xxxxx
 MAIL_USERNAME": xxxxxxx
