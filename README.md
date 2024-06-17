@@ -1,11 +1,5 @@
 # kanastra-challenge-boilerplate
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT -->
 <br />
 <p align="center">
@@ -75,9 +69,11 @@ This project serves as a boilerplate to quickly set up the frontend challenge en
 
 To get a local copy up and running follow these simple steps.
 
+```
 Note:
 
 The processing of files for sending emails and generating invoices is performed using a scheduler every 5 minutes. This process allocates tasks to a queue to prevent application bottlenecks.
+```
 
 ### Prerequisites
 
@@ -89,3 +85,12 @@ The processing of files for sending emails and generating invoices is performed 
 
 - to access the frontend -> http://localhost:8080/
 - to access the backend -> http://localhost:8000/
+
+<!-- GETTING STARTED -->
+
+### Preview Project
+
+![Captura de Tela 2024-06-16 às 23 25 10](https://github.com/hugouraga/kanastra-challange/assets/24661690/6303b1ea-2b3e-4046-8d30-47bd1f7cfab4)
+
+
+
